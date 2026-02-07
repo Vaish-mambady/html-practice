@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practice 4</title>
+    </head>
+    <style>
+        .note{
+            background-color: rgb(158, 196, 229);
+            padding: 10px;
+            border-style: outset;
+        }
+    </style>
+    <body> 
+        <h2>HTML forms</h2>
+        <form action="action_page.php" class="note"> <!--action to be performed when the form is submitted-->
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value="John"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="john@example.com"><br><br>
+            <input type="submit" value="Submit"> <!--after submitting form data is sent to /action_page.php-->
+        </form>
+        <!--target attribute where to display the response after submitting
+        values: 
+        blank for new tab,
+        self for current window, (default value)
+        parent for parent frame,
+        top for full body of the window, 
+        framename for named iframe.
+        -->
+        <form action="action_page.php" target="_blank"> <!--when submitting result seen in new browser-->
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value="John"><br><br>
+        </form>
+        <p> method get and post</p>
+        <!--get method appends data to url, it is for nonsecure data, bookmark-->
+        <form action="action_page.php" target="_blank" method="get"> 
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value="John"><br><br>
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="password"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <!--post method appends inside body of http req, for secure data, cant bookmark-->
+        <form action="action_page.php" target="_blank" method="post"> 
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value="John"><br><br>
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="password"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <p>autocomplete</p>
+        <form action="action_page.php" autocomplete="on">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+        </form>
+        <br>
+        <p>novalidate</p>
+        <form action="action_page.php" novalidate>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <p>select element</p>
+        <form action="action_page.php">
+            <label for="cars">Choose a car:</label><br> <!--for dropdown list-->
+            <select id="cars" name="cars">
+                <option value="c">Choose a car</option>
+                <option value="saab">Saab</option>
+            </select><br><br>
+            <input type="submit">
+        </form>
+        <p>Visible values</p>
+        <form action="action_page.php">
+            <label for="cars">Choose a car:</label><br>
+            <select id="cars" name="cars" size="3"> <!--size for visible options without dropdown-->
+                <option value="saab">Saab</option>
+                <option value="saab">Saab</option>
+                <option value="saab">Saab</option>
+            </select><br><br>
+            <input type="submit">
+        </form>
+        <p>Multiple selection</p>
+        <form action="action_page.php">
+            <label for="cars">Choose a car:</label><br>
+            <select id="cars" name="cars" multiple> <!--multiple selction use cntrl-->
+                <option value="saab">Saab</option>
+                <option value="saab">Saab</option>
+                <option value="saab">Saab</option>
+            </select><br><br>
+            <input type="submit">
+        </form>
+        <br>
+        <h2>Textarea</h2>
+        <form action="/action_page.php">
+            <textarea id="message" name="message" rows="5" cols="10"></textarea> <!--can also use css for width and height-->
+            <br>
+            <input type="submit">
+        </form>
+        <br>
+        <h2>button</h2>
+        <form>
+            <button type="button" onclick="alert('Hi!')">Click Me!</button> <!--for button element, type can be submit, reset or button-->
+        </form>
+        <h2>Feildset and legend</h2>
+        <form action="/action_page.php">
+            <fieldset> <!--used to group related elements-->
+                <legend>Person name</legend> <!--for caption of fieldset-->
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" value="john doe"><br><br>
+            </fieldset>
+        </form>
+        <h2>datalist</h2> <!--gives predifined option for input elt-->
+        <form action="/action_page.php">
+            <input list="browsers" name="browser">
+            <datalist id="browsers">
+                <option value="Edge">
+                <option value="Firefox">
+            </datalist><br>
+            <input type="submit">
+        </form>
+        <h2>output elt</h2> <!--result of a calculation-->
+        <form action="/action_page.php" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+            0
+            <input type="range" id="a" name="a" value="50">
+            100+
+            <input type="number" id="b" name="b" value="50">
+            =
+            <output name="x" for="a b"></output>
+            <br><br>
+            <input type="submit">
+        </form>
+        <p>input types are:<br>
+        text, password, submit, reset(to reset form value), radio, checkbox, button, <br>
+        color, date, datetime-local(no time zone), email, image, hidden, image,file, month, number, range, <br>
+        search, tel(telephone number), time, url, week etc
+        </p><br>
+        <p>Input attribute: value, readonly, disabled, size, maxlength, min max, multiple, pattern, placeholder, required, step, autofocus, height and width</p>
+        <p>input form attributeS: formaction, formenctype, formmethod, formnovalidate, formtarget</p>
+    </body>
+</html>
